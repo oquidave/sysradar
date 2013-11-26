@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<!-- <ul>
+		{% for box in boxes %}
+		<li>
+		Box Ip: {{box.ip}}
+		</li>
+		<li>
+		Box Name: {{box.box_name}}
+		</li>
+		{% endfor %}
+		</ul> -->
+
+		<table border="0" cellspacing="5" cellpadding="5">
+			<tr>
+				<th>Box Name</th><th>Box IP</th><th>Services</th><th>Options</th>
+			</tr>
+			{% for box in boxes %}
+			<tr>
+				<td>{{box.box_name}}</td>
+				<td>{{box.ip}}</td>
+				<!-- <td><a href="/get_box_services/?box_id={{box.id}}">Services</a></td> -->
+				<td><a href="/box_services/?box_id={{box.id}}&ip={{box.ip}}">Services</a></td>
+				<td>Edit|Delete</td>
+
+			</tr>
+			{% endfor %}
+		</table>
+
+	</body>
+</html>

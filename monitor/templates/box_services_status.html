@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<table border="0" cellspacing="5" cellpadding="5">
+			<tr>
+				<th>Service Name</th><th>Port</th><th>Status</th><th>Options</th>
+			</tr>
+			{% for box_service in box_services %}
+			<tr>
+				<td>{{box_service.service_name}}</td>
+				<td>{{box_service.service_port}}</td>
+				<td>{{box_service.service_status}}</td>
+				
+				
+				{% ifequal box_service.service_status "service_up"  %}
+					<td><a href=/service_control/?action=stop&daemon={{box_service.daemon}}>Stop</a> |
+						<a href=/service_control/?action=restart&daemon={{box_service.daemon}}>Restart</a>
+					</td>
+				{% else %}
+					<td><a href=/service_control/?action=start&daemon={{box_service.daemon}}>Start</a></td>
+				{% endifequal %}	
+					
+			</tr>
+			{% endfor %}
+		</table>
+
+</body>
+</html>

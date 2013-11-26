@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<table border="0" cellspacing="5" cellpadding="5">
+			<tr>
+				<th>Service Name</th><th>Port</th><th>Options</th>
+			</tr>
+			{% for box_service in box_services %}
+			<tr>
+				<td>{{box_service.service_name}}</td>
+				<td>{{box_service.service_port}}</td>
+				<td>Start|Stop|Restart</td>
+			</tr>
+			{% endfor %}
+		</table>
+
+</body>
+</html>
